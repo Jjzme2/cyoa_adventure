@@ -1,0 +1,54 @@
+@import url(variables.css);
+
+
+nav a {
+  font-weight: bold;
+  color: var(--link-color);
+}
+/* TEst */
+nav a:hover {
+  color: var(--link-color-hover);
+  transition-duration: 0.25s;
+}
+
+nav a.router-link-exact-active {
+  color: var(--link-color-active);
+}
+
+a,
+router-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-text-color);
+}
+
+.large {
+	font-size: 2rem;
+}
+
+.small {
+	font-size: 0.75rem;
+}
+
+.subtle {
+	color: var(--secondary-text-color);
+}
+
+.card-adventure h1 {
+	font-size: 3.5rem;
+	font-family: monospace;
+	margin-bottom: 3rem;
+}
+
+.card-adventure p {
+	font-size: 1rem;
+}

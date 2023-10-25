@@ -1,5 +1,5 @@
 <template>
-  <BaseView>
+  <BaseView :includeHeader="includeHeader" :includeFooter="includeFooter">
     <template #default>
       <div class="dashboard-view">
         <dashboard></dashboard>
@@ -10,13 +10,19 @@
 
 <script>
 import BaseView from "./BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/main/dashboardHome.vue";
+import dashboard from "@/components/app/mainElements/dashboards/dashboardOBJECTNAME.vue";
 
 export default {
-  name: "HomeView",
+  name: "OBJECTNAMEView",
   components: {
     BaseView,
     dashboard,
+  },
+  data() {
+    return {
+      includeHeader: true,
+      includeFooter: true,
+    };
   },
 };
 </script>

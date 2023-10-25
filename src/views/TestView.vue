@@ -10,7 +10,7 @@
 
 <script>
 import BaseView from "./BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/main/dashboardHome.vue";
+import dashboard from "@/components/app/mainElements/dashboards/main/dashboardTest.vue";
 
 export default {
   name: "HomeView",
