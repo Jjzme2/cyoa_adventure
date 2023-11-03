@@ -6,10 +6,10 @@ import timeUtil from "./timeUtil.js"; //  Time Util tool
 const UtilPlugin = {
   install(app) {
     // Add global properties and methods
-    app.config.globalProperties.$loggerUtils = CustomLogger; //  !Called as this.$customLogger
-    app.config.globalProperties.$stringUtils = StringManipulation; //  !Called as this.$stringHelper
-    app.config.globalProperties.$mappingUtils = MappingUtil; //  !Called as this.$mappingUtil
-    app.config.globalProperties.$timeUtils = timeUtil; //  !Called as this.$mappingUtil
+    app.config.globalProperties.$loggerUtils = CustomLogger; //  !Called as this.$loggerUtils
+    app.config.globalProperties.$stringUtils = StringManipulation; //  !Called as this.$stringUtils
+    app.config.globalProperties.$mappingUtils = MappingUtil; //  !Called as this.$mappingUtils
+    app.config.globalProperties.$timeUtils = timeUtil; //  !Called as this.$timeUtils
   },
 };
 

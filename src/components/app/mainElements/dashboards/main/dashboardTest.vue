@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-main">
+  <div class="dashboard-page">
     <div class="dashboard-header">
       <h4>Testing Dashboard:</h4>
 

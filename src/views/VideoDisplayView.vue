@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import BaseView from "./BaseView.vue";
+import BaseView from "@/views/main/BaseView.vue";
 import VideoPlayer from "@/components/app/common/cards/video/VideoPlayer.vue";
 import goToButton from "@/components/app/common/buttons/GoToButton.vue";
 

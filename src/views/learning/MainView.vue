@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import BaseView from "./BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/adventures/dashboardOpenAdventure.vue";
+import BaseView from "@/views/main/BaseView.vue";
+import dashboard from "@/components/app/mainElements/dashboards/learning/dashboardLearningMain.vue";
 
 export default {
-  name: "OpenAdventureView",
+  name: "LearningMainView",
   components: {
     BaseView,
     dashboard,

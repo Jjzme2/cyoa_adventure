@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Views
-import HomeView from "../views/HomeView.vue";
-import AdventureView from "../views/AdventureView.vue";
-import OpenAdventureView from "../views/OpenAdventureView.vue";
-import viewAdventurePage from "../views/ViewAdventurePage.vue";
+import HomeView from "../views/main/HomeView.vue";
+
+//  Learning
+import LearningView from "../views/learning/MainView.vue";
+import CategoryView from "../views/learning/flashCards/CategoryView.vue";
+
+// Activities
+import ActivitiesView from "../views/activities/MainView.vue";
+import SelectAdventureView from "../views/activities/adventures/SelectionView.vue";
+import TitleView from "../views/activities/adventures/TitleView.vue";
+import PageView from "../views/activities/adventures/PageView.vue";
 
 const appName = "CYOA Adventure";
 
@@ -24,6 +31,10 @@ const routes = [
   // },
 
   // AUTHORISED ROUTES
+
+  /** ----------------------------------------------------------------------------------------------------------------------												Nav Visible Routes
+  ----------------------------------------------------------------------------------------------------------------------
+  */
   {
     path: "/",
     name: "home",
@@ -34,20 +45,81 @@ const routes = [
       hideInNav: false,
     },
   },
+
   {
-    path: "/adventures",
-    name: "adventures",
-    component: AdventureView,
+    path: "/learning",
+    name: "learning",
+    component: LearningView,
     meta: {
-      title: `${appName} -- Adventures`,
+      title: `${appName} -- Learning`,
       style: { color: routeColor },
       hideInNav: false,
     },
   },
+
   {
-    path: "/adventures/:adventureId/",
+    path: "/activities",
+    name: "activities",
+    component: ActivitiesView,
+    meta: {
+      title: `${appName} -- Activities`,
+      style: { color: routeColor },
+      hideInNav: false,
+    },
+  },
+
+  /** ----------------------------------------------------------------------------------------------------------------------												Nav Hidden Routes
+  ----------------------------------------------------------------------------------------------------------------------
+  */
+
+  //  Learning Routes
+
+  {
+    path: "/learning/flash-cards/",
+    name: "flashCards",
+    component: CategoryView,
+    meta: {
+      title: `${appName} -- Flash Cards`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+  {
+    path: "/learning/quizzes/",
+    name: "quizzes",
+    component: CategoryView,
+    meta: {
+      title: `${appName} -- Quizzes`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+  {
+    path: "/learning/videos/",
+    name: "videos",
+    component: CategoryView,
+    meta: {
+      title: `${appName} -- Videos`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
+  // Activities Routes
+  {
+    path: "/activities/adventures",
+    name: "adventures",
+    component: SelectAdventureView,
+    meta: {
+      title: `${appName} -- Adventures`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+  {
+    path: "/activities/adventures/:adventureId/",
     name: "adventure",
-    component: OpenAdventureView,
+    component: TitleView,
     meta: {
       title: `${appName} -- Adventure`,
       style: { color: routeColor },
@@ -55,9 +127,9 @@ const routes = [
     },
   },
   {
-    path: "/adventures/:adventureId/:pageId",
+    path: "/activities/adventures/:adventureId/:pageId",
     name: "adventurePage",
-    component: viewAdventurePage,
+    component: PageView,
     meta: {
       title: `${appName} -- Adventure`,
       style: { color: routeColor },

@@ -1,0 +1,13 @@
+@import url(variables.css);
+
+
+.question {
+	background-color: whitesmoke;
+	color: black;
+}
+
+.answer {
+	background-color: gold;
+	color: purple;
+}
+

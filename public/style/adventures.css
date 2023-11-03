@@ -1,0 +1,18 @@
+@import url(variables.css);
+
+.page {
+	background-color: var(--page-color);
+	margin: 0 auto;
+	padding: 1rem;
+	width: 40%;
+}
+
+.page-content {
+	color: var(--primary-text-color);
+	font-size: 22px;
+}
+
+.choice-area {
+	margin: 5rem auto;
+	background-color: var(--primary-background-color);
+}

@@ -1,12 +1,14 @@
 <template>
-  <div class="card adventure-title" v-if="adventure">
-    <h1>{{ adventure.name }}</h1>
-    <p>{{ adventure.description }}</p>
+  <div class="dashboard-page">
+    <div class="card adventure-title" v-if="adventure">
+      <h1>{{ adventure.name }}</h1>
+      <p>{{ adventure.description }}</p>
 
-    <PrimaryButton text="Begin Adventure" @clicked="continueAdventure" />
-  </div>
-  <div class="card" v-else>
-    <h1>Loading...</h1>
+      <PrimaryButton text="Begin Adventure" @clicked="continueAdventure" />
+    </div>
+    <div class="card" v-else>
+      <h1>Loading...</h1>
+    </div>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
     const dispatchString = "adventures/fetchAll";
     const route = useRoute();
     const id = route.params.adventureId;
+    console.log(id);
 
     // Fetch on component mount
     onBeforeMount(async () => {
@@ -43,7 +46,6 @@ export default {
   methods: {
     continueAdventure() {
       console.log("The adventure continues!");
-      console.log(this.$route.params.adventureId);
       this.$router.push({
         name: "adventurePage",
         params: {

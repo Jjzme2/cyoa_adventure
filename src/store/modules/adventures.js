@@ -40,7 +40,7 @@ const adventures = {
         const response = await APIService.makeRequest.get(
           state.link + "/" + adventureId + "/pages"
         );
-        commit("setPages", response.data);
+        commit("setPages", response.data.contents);
         commit("appState/setLoading", false, { root: true });
       } catch (error) {
         APIService.handleError(commit, error);

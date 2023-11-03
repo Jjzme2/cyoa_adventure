@@ -6,6 +6,8 @@ import appState from "./modules/appState";
 // import journals from "./modules/journals";
 import quotes from "./modules/quotes";
 import adventures from "./modules/adventures";
+import flashCards from "./modules/flashCards";
+import quizzes from "./modules/quizzes";
 
 const store = createStore({
   state: {},
@@ -17,6 +19,8 @@ const store = createStore({
     // bookmarks,
     adventures,
     quotes,
+    flashCards,
+    quizzes,
   },
 });
 

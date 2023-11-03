@@ -3,9 +3,7 @@
 </template>
 
 <style>
-@import url("../public/style/themes.css");
-@import url("../public/style/textStyles.css");
-@import url("../public/style/common.css");
+@import url("../public/style/_cssImporter.css");
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

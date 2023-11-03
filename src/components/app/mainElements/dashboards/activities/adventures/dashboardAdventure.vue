@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="dashboard-view">
+  <div class="dashboard-page">
+    <div>
       <adventureCard
-        v-for="item in storeData"
+        v-for="item in adventures"
         :key="item.id"
         :item="item"
         @click="openAdventure(item.id)"
@@ -20,24 +20,19 @@ import adventureCard from "@/components/app/common/cards/api/adventureCard.vue";
 export default {
   name: "dashboardAdventure",
   components: { adventureCard },
-  data() {
-    return {
-      someData: "",
-    };
-  },
   setup() {
     const store = useStore();
     const getterString = "adventures/getAll";
     const dispatchString = "adventures/fetchAll";
 
-    const storeData = computed(() => store.getters[getterString]);
+    const adventures = computed(() => store.getters[getterString]);
 
     // Fetch on component mount
     onMounted(async () => {
       await store.dispatch(dispatchString);
     });
 
-    return { storeData };
+    return { adventures };
   },
   methods: {
     openAdventure(id) {

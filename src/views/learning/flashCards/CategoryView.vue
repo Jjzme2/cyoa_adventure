@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import BaseView from "./BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/adventures/dashboardViewPage.vue";
+import BaseView from "@/views/main/BaseView.vue";
+import dashboard from "@/components/app/mainElements/dashboards/learning/flashCards/dashboardFlashCardCategory.vue";
 
 export default {
-  name: "OpenAdventureView",
+  name: "FlashCardCategoryView",
   components: {
     BaseView,
     dashboard,

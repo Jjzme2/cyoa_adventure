@@ -1,25 +1,24 @@
 <template>
-  <div class="page content-area" v-if="page">
-    {{ page.CONTENT }}
+  <div class="page" v-if="page">
+    <p class="page-content">{{ page.content }}</p>
 
-    <div class="choice-area">
-      <div v-if="page.NAME !== 'end'">
+    <div class="choice-area bordered-rounded w-25">
+      <div v-if="page.name !== 'end'">
         <h2>Choose your path</h2>
-        <div v-for="choice in JSON.parse(page.CHOICES).pages" :key="choice.id">
+        <div v-for="choice in page.choices" :key="choice.id">
           <PrimaryButton
             classes="margin-top-sm"
-            :text="choice.text"
+            :text="sentence(choice.text)"
             @clicked="continueAdventure(choice.id)"
           />
         </div>
       </div>
+      <PrimaryButton
+        classes="margin-top-md"
+        text="Back to Adventures"
+        @clicked="endAdventure"
+      />
     </div>
-
-    <PrimaryButton
-      classes="margin-top-lg"
-      text="Back to Adventures"
-      @clicked="endAdventure"
-    />
   </div>
   <div class="card" v-else>
     <h1>Loading...</h1>
@@ -38,6 +37,11 @@ export default {
   components: {
     PrimaryButton,
   },
+  computed: {
+    sentence() {
+      return (text) => this.$stringUtils.convertStringToCase(text, "sentence");
+    },
+  },
   setup() {
     const store = useStore();
     const getterString = "adventures/getPages";
@@ -53,16 +57,18 @@ export default {
       await store.dispatch(dispatchString, adventureId);
       // After dispatch is complete, set the page
       page.value = store.getters[getterString].find(
-        (page) => page.ID === pageId
+        (page) => page.id === pageId
       );
     });
 
     watchEffect(() => {
       if (pageId !== route.params.pageId) {
         pageId = route.params.pageId;
+        console.log(page);
+
         // After the route parameter changes, update the page
         page.value = store.getters[getterString].find(
-          (page) => page.ID === pageId
+          (page) => page.id === pageId
         );
       }
     });

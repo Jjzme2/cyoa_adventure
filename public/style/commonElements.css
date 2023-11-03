@@ -51,23 +51,7 @@ button:hover {
   transition-duration: 0.25s;
 }
 
-.dashboard-view {
-  min-height: 10em;
 
-}
-
-.card {
-  background-color: var(--card-background-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  padding: 1rem;
-}
-
-.card-adventure {
-	height: 600px;
-	width: 400px;
-}
 
 
 

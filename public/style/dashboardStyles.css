@@ -1,0 +1,14 @@
+@import url(variables.css);
+
+.dashboard-page {
+	background-color: var(--secondary-background-color);
+	color: var(--primary-text-color);
+	min-height: 100vh;
+}
+
+.dashboard-page h1 {
+	color: var(--secondary-text-color);
+	font-size: 1.25rem;
+	margin: 0 auto 3rem auto; /* Top, Right, Bottom, Left */
+	max-width: 60%;
+}

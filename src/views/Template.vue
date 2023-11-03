@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import BaseView from "./BaseView.vue";
+import BaseView from "@/views/main/BaseView.vue";
 import dashboard from "@/components/app/mainElements/dashboards/dashboardOBJECTNAME.vue";
 
 export default {

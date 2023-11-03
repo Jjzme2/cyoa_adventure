@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="quote-card" v-if="randomQuote">
-      <p>{{ randomQuote.QUOTE }}</p>
+      <p>
+        {{ sentencedQuote }}
+      </p>
       -
-      <a :href="randomQuote.SOURCE" target="blank">
-        {{ randomQuote.AUTHOR }}
+      <a :href="randomQuote.source" target="blank">
+        {{ titledAuthor }}
       </a>
     </div>
     <div v-else>
@@ -15,7 +17,7 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, onMounted } from "vue";
+import { onMounted } from "vue";
 
 export default {
   name: "quoteDisplay",
@@ -24,19 +26,35 @@ export default {
       someData: "",
     };
   },
+  computed: {
+    randomQuote() {
+      return this.$store.getters["quotes/getRandomQuote"];
+    },
+    sentencedQuote() {
+      return (
+        this.$stringUtils.convertStringToCase(
+          this.randomQuote.quote,
+          "sentence"
+        ) ?? ""
+      );
+    },
+    titledAuthor() {
+      return (
+        this.$stringUtils.convertStringToCase(
+          this.randomQuote.author,
+          "title"
+        ) ?? ""
+      );
+    },
+  },
   setup() {
     const store = useStore();
-    const getterString = "quotes/getRandomQuote";
     const dispatchString = "quotes/fetchAll";
 
     // Fetch on component mount
     onMounted(async () => {
       await store.dispatch(dispatchString);
     });
-
-    let randomQuote = computed(() => store.getters[getterString]);
-    // randomQuote = JSON.parse(randomQuote);
-    return { randomQuote };
   },
 };
 </script>

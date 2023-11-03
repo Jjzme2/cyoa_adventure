@@ -11,11 +11,11 @@
     <footer class="footer" v-if="$slots.footer">
       <footer>
         <p>&copy; {{ yearTag }}</p>
-        <!-- <span>yearTag</span> -->
       </footer>
     </footer>
   </div>
 </template>
+
 <script>
 import NavbarElement from "@/components/app/base/NavbarElement.vue";
 

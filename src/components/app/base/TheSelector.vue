@@ -1,5 +1,5 @@
 <template>
-  <div class="select-form" :class="themes">
+  <div class="select-form" :class="customClass ? customClass : 'pop'">
     <label v-if="label" for="customSelectMenu">{{ label }}</label>
 
     <select id="customSelectMenu" v-model="selected" @change="emitSelection">
@@ -9,10 +9,10 @@
 
       <option
         v-for="option in selectionOptions.options"
-        :key="option.value"
-        :value="option.value"
+        :key="option.id"
+        :value="option.id"
       >
-        {{ option.message }}
+        {{ option.name }}
       </option>
     </select>
   </div>
@@ -29,13 +29,13 @@ export default {
       default: () => ({
         defaultMessage: "---Select an option---",
         options: [
-          { value: "1", message: "One" },
-          { value: "2", message: "Two" },
+          { id: "1", name: "One" },
+          { id: "2", name: "Two" },
         ],
       }),
     },
     label: String,
-    themes: String,
+    customClass: String,
   },
   setup(props, { emit }) {
     const selected = ref("0");
