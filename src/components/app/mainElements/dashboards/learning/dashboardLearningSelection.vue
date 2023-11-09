@@ -23,31 +23,43 @@
 <script>
 import DashboardCard from "@/components/app/common/cards/dashboard/dashboardCard.vue";
 import goToButton from "@/components/app/common/buttons/GoToButton.vue";
+
 export default {
   name: "dashboardActivitiesMain",
   components: { DashboardCard, goToButton },
   data() {
     return {
-      dashboardMessage: "Welcome to the Activity Main Page.",
+      goToRoute: "/",
+      dashboardMessage:
+        "Welcome to the Learning Main Page. Here you will gain points that can be used for different activities.",
       dashboardCards: {
-        clicker: {
-          title: "Clicker",
-          icon: "bi bi-hand-index-thumb-fill",
-          route: "activities/clicker",
+        flashCards: {
+          title: "Flash Cards",
+          icon: "bi bi-app",
+          route: "learning/flash-cards",
         },
-        adventures: {
-          title: "Adventures",
-          icon: "bi bi-airplane-engines",
-          route: "activities/adventures",
+        quizzes: {
+          title: "Quizzes",
+          icon: "bi bi-pencil-square",
+          route: "learning/quizzes",
+        },
+        videos: {
+          title: "Videos",
+          icon: "bi bi-youtube",
+          route: "learning/videos",
         },
       },
     };
   },
   methods: {
-    relocateTo(path) {
-      this.$router.push({
-        path: path,
-      });
+    goToFlashCards() {
+      this.$router.push({ name: "flashCards" });
+    },
+    goToQuizzes() {
+      this.$router.push({ name: "quizzes" });
+    },
+    goToVideos() {
+      this.$router.push({ name: "videos" });
     },
   },
 };

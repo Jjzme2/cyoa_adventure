@@ -1,7 +1,7 @@
 <template>
   <!-- Go back button -->
   <router-link :to="destination">
-    <button>{{ buttonText }}</button>
+    <button><i :class="icon"></i>{{ buttonText }}</button>
   </router-link>
 </template>
 
@@ -16,6 +16,10 @@ export default {
     buttonText: {
       type: String,
       default: "Go Back",
+    },
+    icon: {
+      type: String,
+      default: "bi bi-arrow-left-circle",
     },
   },
   computed: {

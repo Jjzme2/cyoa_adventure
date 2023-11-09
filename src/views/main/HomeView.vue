@@ -1,5 +1,5 @@
 <template>
-  <BaseView>
+  <BaseView :includeHeader="includeHeader" :includeFooter="includeFooter">
     <template #default>
       <div class="dashboard-view">
         <dashboard></dashboard>
@@ -17,6 +17,12 @@ export default {
   components: {
     BaseView,
     dashboard,
+  },
+  data() {
+    return {
+      includeHeader: false,
+      includeFooter: true,
+    };
   },
 };
 </script>

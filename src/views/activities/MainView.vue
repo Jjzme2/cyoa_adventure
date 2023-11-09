@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      includeHeader: true,
+      includeHeader: false,
       includeFooter: true,
     };
   },

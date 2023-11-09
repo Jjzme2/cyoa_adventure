@@ -1,9 +1,9 @@
 import APIService from "../apiService.js";
 
-const quizzes = {
+const videos = {
   namespaced: true,
   state: {
-    link: "/quizzes",
+    link: "/videos",
     allItems: [],
   },
   getters: {
@@ -21,7 +21,7 @@ const quizzes = {
 
       try {
         const response = await APIService.makeRequest.get(state.link);
-        commit("setAll", response.data.contents);
+        commit("setAll", response.data);
         commit("appState/setLoading", false, { root: true });
       } catch (error) {
         APIService.handleError(commit, error);
@@ -31,4 +31,4 @@ const quizzes = {
   modules: {},
 };
 
-export default quizzes;
+export default videos;

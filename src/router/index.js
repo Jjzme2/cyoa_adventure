@@ -1,44 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// Views
-import HomeView from "../views/main/HomeView.vue";
-
-//  Learning
-import LearningView from "../views/learning/MainView.vue";
-import CategoryView from "../views/learning/flashCards/CategoryView.vue";
-
-// Activities
-import ActivitiesView from "../views/activities/MainView.vue";
-import SelectAdventureView from "../views/activities/adventures/SelectionView.vue";
-import TitleView from "../views/activities/adventures/TitleView.vue";
-import PageView from "../views/activities/adventures/PageView.vue";
+import components from "./viewImporter.js";
 
 const appName = "CYOA Adventure";
 
 const routeColor = "#333333";
 
 const routes = [
-  // UNAUTHORISED ROUTES
-  // {
-  // 	path: "/about",
-  // 	name: "about Us",
-  // 	component: () => import("../views/AboutView.vue"),
-  // 	meta: {
-  // 		title: `${appName} -- About Us`,
-  // 		style: { color: routeColor },
-  // 		hideInNav: false,
-  // 	},
-  // },
-
-  // AUTHORISED ROUTES
-
   /** ----------------------------------------------------------------------------------------------------------------------												Nav Visible Routes
   ----------------------------------------------------------------------------------------------------------------------
   */
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: components.main.Home,
     meta: {
       title: `${appName} -- Home`,
       style: { color: routeColor },
@@ -49,7 +24,7 @@ const routes = [
   {
     path: "/learning",
     name: "learning",
-    component: LearningView,
+    component: components.learning.Selection,
     meta: {
       title: `${appName} -- Learning`,
       style: { color: routeColor },
@@ -60,7 +35,7 @@ const routes = [
   {
     path: "/activities",
     name: "activities",
-    component: ActivitiesView,
+    component: components.activities.Main,
     meta: {
       title: `${appName} -- Activities`,
       style: { color: routeColor },
@@ -72,12 +47,23 @@ const routes = [
   ----------------------------------------------------------------------------------------------------------------------
   */
 
+  {
+    path: "/about",
+    name: "about Us",
+    component: () => components.main.About,
+    meta: {
+      title: `${appName} -- About Us`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
   //  Learning Routes
 
   {
     path: "/learning/flash-cards/",
     name: "flashCards",
-    component: CategoryView,
+    component: components.learning.Category,
     meta: {
       title: `${appName} -- Flash Cards`,
       style: { color: routeColor },
@@ -87,7 +73,7 @@ const routes = [
   {
     path: "/learning/quizzes/",
     name: "quizzes",
-    component: CategoryView,
+    component: components.learning.Category,
     meta: {
       title: `${appName} -- Quizzes`,
       style: { color: routeColor },
@@ -97,7 +83,7 @@ const routes = [
   {
     path: "/learning/videos/",
     name: "videos",
-    component: CategoryView,
+    component: components.learning.Category,
     meta: {
       title: `${appName} -- Videos`,
       style: { color: routeColor },
@@ -109,7 +95,7 @@ const routes = [
   {
     path: "/activities/adventures",
     name: "adventures",
-    component: SelectAdventureView,
+    component: components.activities.adventures.Selection,
     meta: {
       title: `${appName} -- Adventures`,
       style: { color: routeColor },
@@ -119,7 +105,7 @@ const routes = [
   {
     path: "/activities/adventures/:adventureId/",
     name: "adventure",
-    component: TitleView,
+    component: components.activities.adventures.Title,
     meta: {
       title: `${appName} -- Adventure`,
       style: { color: routeColor },
@@ -129,9 +115,32 @@ const routes = [
   {
     path: "/activities/adventures/:adventureId/:pageId",
     name: "adventurePage",
-    component: PageView,
+    component: components.activities.adventures.Page,
     meta: {
       title: `${appName} -- Adventure`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
+  //   Clicker Game
+  {
+    path: "/activities/clicker/",
+    name: "clickerGame",
+    component: components.activities.clicker.Main,
+    meta: {
+      title: `${appName} -- Clicker Game`,
+      style: { color: routeColor },
+      hideInNav: true,
+    },
+  },
+
+  {
+    path: "/error",
+    name: "ErrorView",
+    component: components.main.Error,
+    meta: {
+      title: `${appName} -- 404`,
       style: { color: routeColor },
       hideInNav: true,
     },

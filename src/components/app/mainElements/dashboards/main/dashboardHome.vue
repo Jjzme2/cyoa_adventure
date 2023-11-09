@@ -1,8 +1,20 @@
 <template>
   <div class="dashboard-page">
-    <div class="dashboard-header">
-      <h3 id="dashboard-title">Good {{ timeOfDay }}</h3>
+    <div class="dashboard-greeting">
+      <h1>
+        <hilighter color="yellow">Good {{ timeOfDay }}</hilighter
+        ><br />
+        Wise words to consider today:
+      </h1>
       <QuoteDisplay />
+    </div>
+
+    <div class="dashboard-main">
+      <div v-for="item in dashboardCards" :key="item.route">
+        <router-link :to="item.route">
+          <DashboardCard :title="item.title" :icon="item.icon" />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -10,10 +22,35 @@
 <script>
 import { ref } from "vue";
 import QuoteDisplay from "@/components/app/mainElements/dataRepresentations/quoteDisplay.vue";
+import DashboardCard from "@/components/app/common/cards/dashboard/dashboardCard.vue";
+
+import hilighter from "@/components/app/common/text/highlightText.vue";
 
 export default {
   name: "dashboardHome",
-  components: { QuoteDisplay },
+  components: { QuoteDisplay, DashboardCard, hilighter },
+  data() {
+    return {
+      dashboardCards: {
+        learning: {
+          title: "Learning",
+          icon: "bi bi-book",
+          route: "/learning",
+        },
+        activities: {
+          title: "Activities",
+          icon: "bi bi-controller",
+          route: "/activities",
+        },
+        // journal: {
+        //   title: "Journal",
+        //   icon: "fas fa-book-open",
+        //   color: "var(--primary_accent_color)",
+        //   route: "/journal",
+        // },
+      },
+    };
+  },
   setup() {
     const timeOfDay = ref("");
     const currentTime = new Date().getHours();

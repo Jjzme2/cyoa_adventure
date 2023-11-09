@@ -14,10 +14,16 @@
   padding: 1rem;
 }
 
-.card-adventure {
-	height: 600px;
-	width: 400px;
+.card-selection {
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  cursor: pointer;
 }
+
+
 
 /* Common Classes */
 
@@ -109,6 +115,31 @@
   padding-right: 10rem;
 }
 
+.separated-v-1 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.separated-v-2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.separated-v-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.separated-v-4 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.separated-v-5 {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
 /* Classes - Size */
 
 .w-sm {
@@ -130,4 +161,27 @@
 .bordered-rounded {
   border: 1px solid var(--dk-color);
   border-radius: 0.5rem;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.simple-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.target {
+  cursor: pointer;
 }

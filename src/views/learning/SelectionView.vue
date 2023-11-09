@@ -10,17 +10,17 @@
 
 <script>
 import BaseView from "@/views/main/BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/learning/flashCards/dashboardFlashCardCategory.vue";
+import dashboard from "@/components/app/mainElements/dashboards/learning/dashboardLearningSelection.vue";
 
 export default {
-  name: "FlashCardCategoryView",
+  name: "LearningMainView",
   components: {
     BaseView,
     dashboard,
   },
   data() {
     return {
-      includeHeader: true,
+      includeHeader: false,
       includeFooter: true,
     };
   },

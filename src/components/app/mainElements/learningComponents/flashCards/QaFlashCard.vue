@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-page">
+  <div class="simple-component">
     <div
       class="card w-md"
       style="margin: 3rem auto"

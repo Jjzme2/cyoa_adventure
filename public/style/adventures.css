@@ -16,3 +16,27 @@
 	margin: 5rem auto;
 	background-color: var(--primary-background-color);
 }
+
+.adventure-library {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 0.5rem;
+	margin: 0 auto;
+}
+
+.card-adventure {
+	height: 600px;
+	width: 400px;
+	background-image: url(/public/images/coverArt/adventures/Generic_1.jpg);
+	background-size: cover;
+}
+
+.card-adventure h1 {
+	font-size: 3.5rem;
+	font-family: monospace;
+	margin-bottom: 3rem;
+}
+
+.card-adventure p {
+	font-size: 1rem;
+}

@@ -10,7 +10,7 @@
 
 <script>
 import BaseView from "@/views/main/BaseView.vue";
-import dashboard from "@/components/app/mainElements/dashboards/activities/adventures/dashboardAdventureTitle.vue";
+import dashboard from "@/components/app/mainElements/dashboards/activities/clicker/dashboardClickerHome.vue";
 
 export default {
   name: "OpenAdventureView",
